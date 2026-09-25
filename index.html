@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sajeex | Design • Develop • Deliver</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#050507;
+    --card:#0d0d13;
+    --text:#f5f5f7;
+    --muted:#9999a8;
+    --blue:#4f7cff;
+    --purple:#9b5cff;
+    --border:rgba(255,255,255,.09);
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ---------- BACKGROUND ---------- */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:var(--purple);
+    filter:blur(180px);
+    opacity:.12;
+    top:-180px;
+    left:-150px;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:var(--blue);
+    filter:blur(180px);
+    opacity:.10;
+    right:-180px;
+    bottom:-180px;
+    z-index:-2;
+}
+
+/* ---------- NAVBAR ---------- */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    backdrop-filter:blur(18px);
+    background:rgba(5,5,7,.72);
+    border-bottom:1px solid var(--border);
+}
+
+.nav-inner{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:var(--blue);
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    color:#bbb;
+    font-size:14px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+/* ---------- HERO ---------- */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    padding-top:80px;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.small-title{
+    display:inline-block;
+    color:#aaa;
+    border:1px solid var(--border);
+    padding:9px 15px;
+    border-radius:50px;
+    font-size:13px;
+    margin-bottom:25px;
+    background:rgba(255,255,255,.03);
+}
+
+.hero h1{
+    font-size:clamp(55px,9vw,120px);
+    line-height:.9;
+    letter-spacing:-6px;
+    margin-bottom:30px;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#fff,var(--blue),var(--purple));
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:18px;
+    max-width:620px;
+    line-height:1.7;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 24px;
+    border-radius:50px;
+    border:1px solid var(--border);
+    transition:.3s;
+    font-size:14px;
+}
+
+.btn-primary{
+    background:linear-gradient(90deg,var(--blue),var(--purple));
+    border:none;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+/* floating circle */
+
+.hero-circle{
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.08);
+    right:5%;
+    top:28%;
+    animation:rotate 15s linear infinite;
+}
+
+.hero-circle::before{
+    content:"";
+    position:absolute;
+    width:15px;
+    height:15px;
+    background:var(--blue);
+    border-radius:50%;
+    top:15px;
+    left:50%;
+    box-shadow:0 0 30px var(--blue);
+}
+
+@keyframes rotate{
+    to{transform:rotate(360deg);}
+}
+
+/* ---------- SECTION ---------- */
+
+section{
+    padding:110px 0;
+}
+
+.section-head{
+    margin-bottom:50px;
+}
+
+.section-number{
+    color:var(--blue);
+    font-size:13px;
+    letter-spacing:2px;
+}
+
+.section-head h2{
+    font-size:clamp(38px,6vw,70px);
+    margin-top:12px;
+    letter-spacing:-3px;
+}
+
+.section-head p{
+    color:var(--muted);
+    margin-top:15px;
+}
+
+/* ---------- ABOUT ---------- */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about-text{
+    font-size:25px;
+    line-height:1.5;
+}
+
+.about-text span{
+    color:var(--blue);
+}
+
+.about-small{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* ---------- SERVICES ---------- */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.service{
+    background:linear-gradient(145deg,#111119,#08080c);
+    border:1px solid var(--border);
+    padding:30px;
+    min-height:210px;
+    border-radius:20px;
+    transition:.4s;
+}
+
+.service:hover{
+    transform:translateY(-10px);
+    border-color:rgba(100,120,255,.5);
+    box-shadow:0 20px 60px rgba(50,70,200,.12);
+}
+
+.service-icon{
+    font-size:30px;
+    margin-bottom:35px;
+}
+
+.service h3{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.service p{
+    color:var(--muted);
+    line-height:1.6;
+    font-size:14px;
+}
+
+/* ---------- PROJECTS ---------- */
+
+.projects{
+    display:grid;
+    gap:25px;
+}
+
+.project{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    min-height:330px;
+    border:1px solid var(--border);
+    border-radius:25px;
+    overflow:hidden;
+    background:#0b0b10;
+    transition:.4s;
+}
+
+.project:hover{
+    transform:translateY(-7px);
+    border-color:rgba(100,120,255,.4);
+}
+
+.project-image{
+    min-height:330px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:60px;
+    position:relative;
+    overflow:hidden;
+}
+
+.project-image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,rgba(79,124,255,.25),rgba(155,92,255,.15));
+}
+
+.vegetable{
+    background:
+    radial-gradient(circle at 30% 30%,#4c8b4c,transparent 25%),
+    radial-gradient(circle at 70% 60%,#e05252,transparent 20%),
+    linear-gradient(135deg,#17241b,#09100c);
+}
+
+.parlour{
+    background:
+    radial-gradient(circle at 40% 40%,#d58eac,transparent 25%),
+    linear-gradient(135deg,#281923,#110b10);
+}
+
+.bakery{
+    background:
+    radial-gradient(circle at 50% 40%,#d99b58,transparent 25%),
+    linear-gradient(135deg,#292016,#100d08);
+}
+
+.project-content{
+    padding:45px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.project-number{
+    color:var(--blue);
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.project h3{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.project p{
+    color:var(--muted);
+    line-height:1.7;
+    margin-bottom:22px;
+}
+
+.tags{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.tag{
+    font-size:11px;
+    padding:7px 11px;
+    border:1px solid var(--border);
+    border-radius:50px;
+    color:#aaa;
+}
+
+.view{
+    margin-top:25px;
+    color:#fff;
+    font-size:14px;
+}
+
+/* ---------- PROCESS ---------- */
+
+.process{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+}
+
+.process-box{
+    padding:35px 25px;
+    border-right:1px solid var(--border);
+}
+
+.process-box:last-child{
+    border-right:none;
+}
+
+.process-box span{
+    color:var(--blue);
+    font-size:12px;
+}
+
+.process-box h3{
+    margin:15px 0 10px;
+}
+
+.process-box p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* ---------- WHY ---------- */
+
+.big-line{
+    font-size:clamp(40px,7vw,90px);
+    line-height:1;
+    letter-spacing:-4px;
+    max-width:1000px;
+}
+
+.big-line span{
+    color:var(--blue);
+}
+
+.points{
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.point{
+    border-top:1px solid var(--border);
+    padding-top:20px;
+    color:#bbb;
+}
+
+/* ---------- CONTACT ---------- */
+
+.contact{
+    text-align:center;
+    padding:140px 0;
+}
+
+.contact h2{
+    font-size:clamp(55px,9vw,110px);
+    line-height:.9;
+    letter-spacing:-6px;
+}
+
+.contact p{
+    color:var(--muted);
+    margin:25px auto;
+    max-width:500px;
+    line-height:1.7;
+}
+
+.contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:30px 0;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.footer-text{
+    color:#777;
+    font-size:12px;
+}
+
+.social{
+    display:flex;
+    gap:20px;
+}
+
+.social a{
+    color:#999;
+    font-size:13px;
+}
+
+.social a:hover{
+    color:white;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero-circle{
+        width:180px;
+        height:180px;
+        opacity:.5;
+        right:-50px;
+    }
+
+    .hero h1{
+        letter-spacing:-3px;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .project{
+        grid-template-columns:1fr;
+    }
+
+    .project-image{
+        min-height:230px;
+    }
+
+    .project-content{
+        padding:30px;
+    }
+
+    .process{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .process-box:nth-child(2){
+        border-right:none;
+    }
+
+    .process-box:nth-child(1),
+    .process-box:nth-child(2){
+        border-bottom:1px solid var(--border);
+    }
+
+    .points{
+        grid-template-columns:1fr;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="nav-inner">
+
+        <a href="#home" class="logo">
+            SAJE<span>EX</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#work">Work</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                DIGITAL DESIGN & DEVELOPMENT
+            </div>
+
+            <h1>
+                We build
+                <span class="gradient">digital</span>
+                experiences.
+            </h1>
+
+            <p>
+                Sajeex creates modern, responsive and professional
+                websites for businesses that want a stronger online presence.
+            </p>
+
+            <div class="buttons">
+                <a href="#work" class="btn btn-primary">
+                    View Our Work ↗
+                </a>
+
+                <a href="#contact" class="btn">
+                    Start a Project
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-circle"></div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-head">
+            <div class="section-number">01 — ABOUT</div>
+
+            <h2>What is Sajeex?</h2>
+        </div>
+
+        <div class="about-grid">
+
+            <div class="about-text">
+
+                We turn simple ideas into
+                <span>modern digital experiences.</span>
+
+            </div>
+
+            <div class="about-small">
+
+                Sajeex is a digital design and development brand focused
+                on creating clean, responsive and business-focused websites.
+
+                <br><br>
+
+                From a simple landing page to a complete business website,
+                we focus on making every project simple, attractive and useful.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section id="services">
+
+    <div class="container">
+
+        <div class="section-head">
+            <div class="section-number">02 — SERVICES</div>
+
+            <h2>What we build.</h2>
+
+            <p>Digital solutions designed around your business.</p>
+        </div>
+
+        <div class="services">
+
+            <div class="service">
+                <div class="service-icon">◈</div>
+                <h3>Business Websites</h3>
+                <p>
+                    Professional websites that help businesses
+                    build a strong online presence.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">⌁</div>
+                <h3>Landing Pages</h3>
+                <p>
+                    Focused landing pages designed to present
+                    products, services and offers clearly.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">✦</div>
+                <h3>Creative Websites</h3>
+                <p>
+                    Modern interfaces with attractive layouts,
+                    animations and interactions.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">◎</div>
+                <h3>Responsive Design</h3>
+                <p>
+                    Websites that work smoothly across mobiles,
+                    tablets and desktops.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">↗</div>
+                <h3>WhatsApp Integration</h3>
+                <p>
+                    Simple contact and WhatsApp integration
+                    to help customers reach your business.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">↻</div>
+                <h3>Website Maintenance</h3>
+                <p>
+                    Content updates, improvements and ongoing
+                    website support when required.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+<section id="work">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="section-number">03 — SELECTED WORK</div>
+
+            <h2>Things we've built.</h2>
+
+            <p>
+                A few website concepts created by Sajeex.
+            </p>
+
+        </div>
+
+
+        <div class="projects">
+
+            <!-- VEGETABLE -->
+
+            <div class="project">
+
+                <div class="project-image vegetable">
+                    🥬
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-number">
+                        01 / BUSINESS WEBSITE
+                    </div>
+
+                    <h3>Vegetable Shop</h3>
+
+                    <p>
+                        A fresh and modern website concept for a
+                        local vegetable business with a clean product
+                        presentation.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Responsive</span>
+                        <span class="tag">Business</span>
+                        <span class="tag">WhatsApp</span>
+                    </div>
+
+                    <!-- Change this link to your actual vegetable website -->
+                    <a href="#" class="view">
+                        View Project ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PARLOUR -->
+
+            <div class="project">
+
+                <div class="project-image parlour">
+                    💄
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-number">
+                        02 / BEAUTY WEBSITE
+                    </div>
+
+                    <h3>Beauty Parlour</h3>
+
+                    <p>
+                        An elegant website concept created for a beauty
+                        parlour to showcase services and make customer
+                        contact easier.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Elegant UI</span>
+                        <span class="tag">Services</span>
+                        <span class="tag">Responsive</span>
+                    </div>
+
+                    <!-- Change this link to your actual parlour website -->
+                    <a href="#" class="view">
+                        View Project ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- BAKERY -->
+
+            <div class="project">
+
+                <div class="project-image bakery">
+                    🧁
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-number">
+                        03 / FOOD WEBSITE
+                    </div>
+
+                    <h3>Bakery</h3>
+
+                    <p>
+                        A modern bakery website concept designed to
+                        showcase products in an attractive and simple way.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Modern UI</span>
+                        <span class="tag">Product Display</span>
+                        <span class="tag">Responsive</span>
+                    </div>
+
+                    <!-- Change this link to your actual bakery website -->
+                    <a href="#" class="view">
+                        View Project ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROCESS -->
+<section>
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="section-number">04 — PROCESS</div>
+
+            <h2>From idea to launch.</h2>
+
+        </div>
+
+        <div class="process">
+
+            <div class="process-box">
+                <span>01</span>
+                <h3>Discover</h3>
+                <p>
+                    Understand your business, goals and requirements.
+                </p>
+            </div>
+
+            <div class="process-box">
+                <span>02</span>
+                <h3>Design</h3>
+                <p>
+                    Create a clean visual direction for your website.
+                </p>
+            </div>
+
+            <div class="process-box">
+                <span>03</span>
+                <h3>Develop</h3>
+                <p>
+                    Build a responsive and functional website.
+                </p>
+            </div>
+
+            <div class="process-box">
+                <span>04</span>
+                <h3>Deliver</h3>
+                <p>
+                    Test, launch and hand over the finished website.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHY SAJEEX -->
+<section>
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="section-number">05 — OUR APPROACH</div>
+
+        </div>
+
+        <div class="big-line">
+
+            Not just a website.
+            <span>A digital presence.</span>
+
+        </div>
+
+        <div class="points">
+
+            <div class="point">
+                ✦ Clean & modern design
+            </div>
+
+            <div class="point">
+                ✦ Mobile responsive experience
+            </div>
+
+            <div class="point">
+                ✦ Business-focused websites
+            </div>
+
+            <div class="point">
+                ✦ Clear communication
+            </div>
+
+            <div class="point">
+                ✦ Customized for your needs
+            </div>
+
+            <div class="point">
+                ✦ Support after delivery
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-number">
+            06 — CONTACT
+        </div>
+
+        <h2>
+            Let's build
+            <span class="gradient">something.</span>
+        </h2>
+
+        <p>
+            Have a business idea or need a website?
+            Let's talk about your project.
+        </p>
+
+        <div class="contact-buttons">
+
+            <!-- Replace with your WhatsApp number -->
+            <a
+                href="https://wa.me/91XXXXXXXXXX"
+                target="_blank"
+                class="btn btn-primary">
+                WhatsApp ↗
+            </a>
+
+            <!-- Replace with your email -->
+            <a
+                href="mailto:yourmail@gmail.com"
+                class="btn">
+                Email ↗
+            </a>
+
+            <!-- Replace with your Instagram -->
+            <a
+                href="https://instagram.com/"
+                target="_blank"
+                class="btn">
+                Instagram ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="container">
+
+        <div class="footer-inner">
+
+            <div>
+                <div class="logo">
+                    SAJE<span>EX</span>
+                </div>
+
+                <div class="footer-text">
+                    Design • Develop • Deliver
+                </div>
+            </div>
+
+            <div class="social">
+                <a href="#home">Home</a>
+                <a href="#work">Work</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="footer-text">
+                © 2026 Sajeex
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
